@@ -1,0 +1,1 @@
+python ./samples/HandsOnLab/Sample4_RandomAnalogValueObject.py --ini BACpypes1.ini

@@ -24,7 +24,7 @@ from bacpypes.app import BIPSimpleApplication
 from bacpypes.local.device import LocalDeviceObject
 
 # some debugging
-_debug = 0
+_debug = 1
 _log = ModuleLogger(globals())
 
 # settings
@@ -94,6 +94,7 @@ def main():
         maxApduLengthAccepted=int(args.ini.maxapdulengthaccepted),
         segmentationSupported=args.ini.segmentationsupported,
         vendorIdentifier=int(args.ini.vendoridentifier),
+        vendorName="testVendor"
         )
 
     # make a sample application
@@ -104,6 +105,7 @@ def main():
         ravo = RandomAnalogValueObject(
             objectIdentifier=('analogValue', i),
             objectName='Random-%d' % (i,),
+            units=64
             )
         _log.debug("    - ravo: %r", ravo)
         this_application.add_object(ravo)
